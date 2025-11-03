@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">world of technology</h1>
+                <ul class="nav-menu">
+                    <li><a href="ingresar.html" class="nav-link active">Ingresar</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <main id="boxregistrarse">
+        <form id="boxlogin">
+            <label for="email">E-mail:</label>
+            <input type="email" id="inpemail" required>
+            <label for="password">Contraseña</label>
+            <input type="password" id="inppassword" required>
+            <label for="password" id="confirmar">Confirmar contraseña</label>
+            <input type="password" id="inpconfirmar" required>
+            <input type="checkbox" id="verpassword">
+            <button id="btniniciar" type="submit">Iniciar sesión</button>
+            <button id="btnregistrarse">Registrarse</button>
+        </form>
+    </main>
+    
+    <script type="module" src="ingresar.js"></script>
+</body>
+</html>
