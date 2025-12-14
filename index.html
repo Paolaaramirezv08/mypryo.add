@@ -1,88 +1,395 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Napoli Vera - Pizzería Napolitana</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria - Casa Battaglia</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="navbar">
-    <div class="logo">🍕 Napoli Vera</div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Inicio</a></li>
-      <li><a href="pizzas.html">Pizzas</a></li>
-      <li><a href="contacto.html">contacto</a></li>
-    </ul>
-    <div class="cart-icon" onclick="toggleCart()">
-      🛒 <span id="cartCount">0</span>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Napoli Vera</h1>
-      <p>La Auténtica Tradición Napolitana</p>
-      <div class="hero-buttons">
-        <a href="pizzas.html" class="btn btn-gold">Ver Menú</a>
-        <a href="#nosotros" class="btn btn-white">Nosotros</a>
-      </div>
-    </div>
-  </section>
-<!-- ===============================
-     SOBRE NOSOTROS - CASA BATTAGLIA
-     Adaptado + Estilo renovado
-     =============================== -->
-<br>
-<section id="sobre" class="about-section">
-    <div class="container">
-        <div class="about-content">
-            <!-- Texto -->
-            <div class="about-text">
-                <h3 class="section-title">Sobre Casa Battaglia</h3>
-
-                <p class="about-description">
-                     En <strong>Casa Battaglia</strong> creemos que comer pizza no tiene por qué caer pesado. 
-                    Por eso creamos una masa <strong>ligera, aireada y de fermentación lenta</strong>, 
-                    pensada para que vuelvas a disfrutar tu comida favorita sin malestias.
-                </p>
-
-                <p class="about-description">
-                    Cada pizza es elaborada con <strong>ingredientes frescos</strong>, técnicas artesanales 
-                    y una receta especial que respeta sabores tradicionales, pero con un toque propio. 
-                    No somos un local: somos una cocina familiar que prepara calidad real para llevar.
-                </p>
-
-                
+    <header>
+    <nav class="navbar">
+        <!-- Marca / Logo -->
+        <div class="nav-brand">
+            <div class="brand-logo">
+                <!-- ICONO PRINCIPAL (PIZZA) -->
+                <i class="fas fa-pizza-slice"></i>
             </div>
+            <div class="brand-text">
+                <h1>Casa Battaglia</h1>
+                <span class="brand-slogan">Pizza artesanal & tradición</span>
+            </div>
+        </div>
 
-                    <div class="gallery-image">
-                        <img src="img/IMG_2668.jpg" width="400px" height="250" alt="Horno clásico">
-                        
+        <!-- Menú -->
+        <ul class="nav-menu">
+            <li>
+                <a href="#inicio" onclick="showSection('inicio')" class="nav-link">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+            </li>
+            <li>
+                <a href="#productos" onclick="showSection('productos')" class="nav-link">
+                    <i class="fas fa-pizza-slice"></i> Pizzas
+                </a>
+            </li>
+            <li>
+                <a href="#contacto" onclick="showSection('contacto')" class="nav-link">
+                    <i class="fas fa-phone"></i> Contacto
+                </a>
+            </li>
+        </ul>
+
+        <!-- Carrito -->
+        <div class="cart-container">
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="section active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-slider">
+                <div class="hero-slide active" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/IMG_2724.jpg'); background-size: cover; background-position: center;">
+                    <div class="hero-content">
+                    <h2>Pizzas napolitanas auténticas</h2>
+                    <p>Masa liviana hecha con biga y fermentación de 48 horas,
+                    para una pizza más aireada, digestiva y fiel a la tradición napolitana.</p>
+
+                    <div class="hero-buttons">
+                        <button class="cta-button primary" onclick="showSection('productos')">
+                            <i class="fas fa-pizza-slice"></i> Ver menú
+                        </button>
+
+                        <button class="cta-button secondary" onclick="showSection('contacto')">
+                            <i class="fas fa-phone"></i> Pedir ahora
+                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+    <!-- Servicios -->
+<div class="services-section">
+    <div class="container">
+        <h3 class="section-title">Nuestra forma de hacer pizza</h3>
+
+        <div class="services-grid">
+
+            <!-- Servicio 1 -->
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="service-placeholder">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+                <h4>Fermentación lenta</h4>
+                <p>
+                    Nuestras masas se elaboran con biga y reposan durante 48 horas.
+                    Este proceso permite una fermentación natural que da como resultado
+                    una pizza más liviana, aireada y fácil de digerir.
+                </p>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="service-placeholder">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                </div>
+                <h4>Estilo napolitano</h4>
+                <p>
+                    Respetamos la tradición napolitana en cada pizza:
+                    masa hidratada, borde alveolado y cocción a alta temperatura
+                    para lograr el equilibrio perfecto entre sabor y textura.
+                </p>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="service-placeholder">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                </div>
+                <h4>Ingredientes seleccionados</h4>
+                <p>
+                    Usamos ingredientes de calidad, combinados de forma simple y honesta,
+                    para que cada pizza tenga identidad propia y sabor auténtico.
+                </p>
+            </div>
+
+        </div>
     </div>
+</div>
+
+<!-- Banda de imagen -->
+<div class="image-band"></div>
+
+
+
+      <!-- Features -->
+<div class="features-section">
+    <div class="container">
+        <h3 class="section-title">¿Por qué elegir Casa Battaglia?</h3>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-face-dizzy"></i>
+                </div>
+                <h4>Porque la pizza suele caer pesada</h4>
+                <p>
+                    Mucha gente deja de comer pizza porque después se siente mal.
+                    El problema no es la pizza, sino las masas hechas a las apuradas.
+                    Nosotros trabajamos para que puedas disfrutarla sin esa sensación.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-circle-exclamation"></i>
+                </div>
+                <h4>Porque no todas las masas son iguales</h4>
+                <p>
+                    La fermentación incompleta puede generar inflamación y malestar.
+                    En Casa Battaglia respetamos los tiempos del proceso
+                    para lograr una pizza más amable con el cuerpo.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-ban"></i>
+                </div>
+                <h4>Porque muchos evitan la harina</h4>
+                <p>
+                    Sabemos que hoy mucha gente evita la pizza por cómo se siente después.
+                    Nuestra forma de trabajar la masa busca que vuelvas a disfrutarla,
+                    sin culpa ni arrepentimiento.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-smile-beam"></i>
+                </div>
+                <h4>Porque comer pizza debería ser un placer</h4>
+                <p>
+                    Hacemos pizza pensada para disfrutar.
+                    Para compartir, repetir y levantarte de la mesa
+                    con ganas de otra porción, no con pesadez.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 </section>
-<br>
 
-  <!-- Carrito (sidebar) -->
-  <div id="cartOverlay" class="cart-overlay" onclick="toggleCart()"></div>
-  <aside id="cartSidebar" class="cart-sidebar">
-    <h2>Tu Pedido</h2>
-    <div id="cartItems"></div>
-    <div class="cart-totals">
-      <p>Subtotal: $<span id="cartSubtotal">0</span></p>
-      <p><strong>Total: $<span id="cartTotal">0</span></strong></p>
+  <!-- Sección Productos -->
+<section id="productos" class="section">
+    <div class="container">
+        <h2 class="section-title">Nuestro menú</h2>
+
+        <div class="products-filter">
+            <button class="filter-btn active" onclick="filterProducts('all')">
+              Todas </button>
+            <button class="filter-btn" onclick="filterProducts('fresca')">
+                Pizzas frescas </button>
+            <button class="filter-btn" onclick="filterProducts('congelada')">
+                Pizzas congeladas </button>
+        </div>
+            <div class="products-grid" id="productsGrid">
+            <!-- Las pizzas se cargan dinámicamente con JavaScript -->
+            </div>
+        </div>
+</section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section-title">Contactanos</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> Información</h3>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <p>Av. Corrientes 1234, CABA<br>Buenos Aires, Argentina</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Teléfono</strong>
+                                <p>+54 11 4567-8900</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>ventas@srbamoblamientos.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Horarios</strong>
+                                <p>Lun-Vie: 9:00-19:00<br>Sáb: 9:00-17:00<br>Dom: 10:00-15:00</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <h3><i class="fas fa-paper-plane"></i> Envíanos tu consulta</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre"><i class="fas fa-user"></i> Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Ingresá tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono"><i class="fas fa-phone"></i> Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="+54 11 1234-5678">
+                            </div>
+                            <div class="form-group">
+                                <label for="asunto"><i class="fas fa-tag"></i> Asunto</label>
+                                <select id="asunto" name="asunto" required>
+                                    <option value="">Seleccionar...</option>
+                                    <option value="consulta">Consulta General</option>
+                                    <option value="presupuesto">Solicitar Presupuesto</option>
+                                    <option value="reclamo">Reclamo</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje"><i class="fas fa-comment"></i> Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Dejanos tu consulta..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <div class="login-section">
+                    <div class="login-card">
+                        <h3><i class="fas fa-sign-in-alt"></i> Acceso de Cliente</h3>
+                        <form class="login-form" id="loginForm">
+                            <div class="form-group">
+                                <label for="loginEmail"><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" id="loginEmail" name="loginEmail" required placeholder="tu@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword"><i class="fas fa-lock"></i> Contraseña</label>
+                                <input type="password" id="loginPassword" name="loginPassword" required placeholder="••••••••">
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrito de Compras -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Carrito de Compras</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Los items del carrito se cargan dinámicamente -->
+        </div>
+        <div class="cart-total">
+            <div class="total-line">
+                <span>Subtotal:</span>
+                <span>$<span id="cartSubtotal">0</span></span>
+            </div>
+            <div class="total-line">
+                <span>Envío:</span>
+                <span class="free-shipping">GRATIS</span>
+            </div>
+            <div class="total-line total">
+                <span>Total:</span>
+                <span>$<span id="cartTotal">0</span></span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">
+                <i class="fas fa-credit-card"></i> Finalizar Compra
+            </button>
+        </div>
     </div>
-    <button class="btn btn-gold" onclick="checkout()">Finalizar Pedido</button>
-  </aside>
 
-  <script src="card.js"></script>
-</body>
-</html>
+    <!-- Overlay para el carrito -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="brand-footer">
+                        <div class="brand-logo">
+                            <i class="fas fa-couch"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h3>SRB AMOBLAMIENTOS</h3>
+                            <p>Premium Furniture Design</p>
+                        </div>
+                    </div>
+                    <p>Transformando espacios en hogares de ensueño desde 2008.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio" onclick="showSection('inicio')">Inicio</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Productos</a></li>
+                        <li><a href="#contacto" onclick="showSection('contacto')">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SRB AMOBLAMIENTOS. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
