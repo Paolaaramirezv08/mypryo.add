@@ -435,7 +435,7 @@ body {
 }
 
 .feature h4 {
-    color: #2c3e50;
+    color: #663333;
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
@@ -572,7 +572,7 @@ body {
 }
 
 .product-info h3 {
-    color: #2c3e50;
+    color: #502c2c;
     margin-bottom: 0.8rem;
     font-size: 1.3rem;
 }
@@ -624,7 +624,7 @@ body {
 }
 
 .info-card h3, .contact-form h3, .login-card h3 {
-    color: #2c3e50;
+    color: #502c2c;
     margin-bottom: 2rem;
     display: flex;
     align-items: center;
@@ -720,13 +720,13 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: #db3434;
     background: white;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #db3434, #ffa743);
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -744,7 +744,7 @@ body {
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 4px 15px rgba(219, 113, 52, 0.3);
 }
 
 /* Carrito */
@@ -776,7 +776,7 @@ body {
 }
 
 .cart-header h3 {
-    color: #2c3e50;
+    color: #502c2c;
     margin: 0;
     display: flex;
     align-items: center;
@@ -825,7 +825,7 @@ body {
 
 .cart-item-name {
     font-weight: 600;
-    color: #2c3e50;
+    color: #612323;
     margin-bottom: 0.5rem;
 }
 
@@ -843,7 +843,7 @@ body {
 }
 
 .quantity-btn {
-    background: #3498db;
+    background: #db3434;
     color: white;
     border: none;
     width: 35px;
@@ -858,7 +858,7 @@ body {
 }
 
 .quantity-btn:hover {
-    background: #2980b9;
+    background: #b99c29;
     transform: scale(1.1);
 }
 
@@ -888,7 +888,7 @@ body {
 .total-line.total {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #ca674e;
     border-top: 2px solid #dee2e6;
     padding-top: 1rem;
     margin-top: 1rem;
@@ -960,7 +960,7 @@ footer {
 }
 
 .brand-footer .brand-logo {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #d6e769, #ff1919);
 }
 
 .brand-footer .brand-text h3 {
@@ -994,11 +994,11 @@ footer {
 }
 
 .footer-section ul li a:hover {
-    color: #3498db;
+    color: #d3db34;
 }
 
 .footer-bottom {
-    border-top: 1px solid #34495e;
+    border-top: 1px solid #613a3a;
     padding-top: 1rem;
     text-align: center;
     color: #bdc3c7;
@@ -1116,4 +1116,45 @@ footer {
 
 .section.active {
     animation: fadeIn 0.5s ease-in-out;
+}
+
+/* FIX IMAGENES DEL CARRITO */
+
+.cart-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-product-image {
+    width: 300px !important;
+    height: 150px !important;
+    max-width: 300px !important;
+    max-height: 150px !important;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+/* ===== CONTACTO EN HORIZONTAL ===== */
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Ajuste general de las cards */
+.contact-info,
+.contact-form-container,
+.login-section {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
 }
