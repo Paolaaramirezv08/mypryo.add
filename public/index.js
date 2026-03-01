@@ -1,58 +1,36 @@
-let products = [
-    // 🟢 FRESCAS
-    {
-        id: 1,
-        name: "Pizza de rúcula, jamón crudo y parmesano",
-        price: 8500,
-        image: "img/IMG_2743.jpg",
-        description: "Pizza fresca de masa biga, salsa pomodoro, mozzarella, rúcula, jamón crudo y parmesano.",
-        category: "fresca"
-    },
-    {
-        id: 2,
-        name: "Pizza Champiñones",
-        price: 8200,
-        image: "img/IMG_2728.jpg",
-        description: "Pizza fresca con champiñones salteados y mozzarella.",
-        category: "fresca"
-    },
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    // 🟡 CONGELADAS
-    {
-        id: 3,
-        name: "Pizza Calabresa",
-        price: 6000,
-        image: "img/CC.jpeg",
-        description: "Pizza congelada lista para hornear.",
-        category: "congelada"
-    },
-    {
-        id: 4,
-        name: "Pizza Champiñones",
-        price: 5800,
-        image: "img/CCH.jpeg",
-        description: "Pizza congelada de champiñones, práctica y deliciosa.",
-        category: "congelada"
-    },
-    {
-        id: 5,
-        name: "Pizza 4 Quesos",
-        price: 6200,
-        image: "img/C4Q.jpeg",
-        description: "Mozzarella, provolone, parmesano y azul.",
-        category: "congelada"
-    },
-    {
-        id: 6,
-        name: "Pizza Panceta",
-        price: 6300,
-        image: "img/CT.jpeg",
-        description: "Panceta crocante y mozzarella.",
-        category: "congelada"
-    }
-    
-];
+const firebaseConfig = {
+  apiKey: "AIzaSyBTDCjLLJcz6KpvpUbxmtkch8qN8-QECLs",
+  authDomain: "casabattaglia-b5362.firebaseapp.com",
+  projectId: "casabattaglia-b5362",
+  storageBucket: "casabattaglia-b5362.firebasestorage.app",
+  messagingSenderId: "957888186524",
+  appId: "1:957888186524:web:d06addcef5ebff4bdd4559"
+};
 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+let products = [];
+
+async function fetchProducts() {
+    const querySnapshot = await getDocs(collection(db, "productos"));
+
+    products = [];
+
+   querySnapshot.forEach((doc) => {
+    products.push({
+        id: doc.id,
+        ...doc.data()
+    });
+});
+
+    console.log("Productos cargados:", products);
+
+    loadProducts(); // vuelve a dibujar productos
+}
 
 let cart = [];
 let currentFilter = 'all';
@@ -102,7 +80,7 @@ function loadProducts() {
                 <h3>${product.name}</h3>
                 <p>${product.description}</p>
                 <div class="product-price">$${product.price.toLocaleString('es-AR')}</div>
-                <button class="add-to-cart" onclick="addToCart(${product.id})">
+               <button class="add-to-cart" onclick="addToCart('${product.id}')">
                     <i class="fas fa-cart-plus"></i> Agregar al Carrito
                 </button>
             </div>
@@ -113,8 +91,9 @@ function loadProducts() {
 
 // Función para agregar al carrito
 function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    const existingItem = cart.find(item => item.id === productId);
+    const product = products.find(p => String(p.id) === String(productId));
+
+    const existingItem = cart.find(item => String(item.id) === String(productId));
     
     if (existingItem) {
         existingItem.quantity++;
@@ -124,7 +103,7 @@ function addToCart(productId) {
             quantity: 1
         });
     }
-    
+
     updateCartUI();
     showNotification('¡Producto agregado al carrito!');
 }
@@ -282,9 +261,10 @@ function checkout() {
 
 // Manejo de formularios
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar la página
+    fetchProducts();  // 🔥 ahora carga desde Firebase
     showSection('inicio');
     updateCartUI();
+});
     
     // Formulario de contacto
     const contactForm = document.getElementById('contactForm');
@@ -306,7 +286,6 @@ document.addEventListener('DOMContentLoaded', function() {
             loginForm.reset();
         });
     }
-});
 
 // Estilos para animaciones
 const style = document.createElement('style');
@@ -334,4 +313,12 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+window.showSection = showSection;
+window.filterProducts = filterProducts;
+window.addToCart = addToCart;
+window.updateQuantity = updateQuantity;
+window.removeFromCart = removeFromCart;
+window.toggleCart = toggleCart;
+window.checkout = checkout;
 
